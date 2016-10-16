@@ -23,9 +23,10 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#toiminta">Toiminta</a></li>
-        <li><a href="#info">Infoa</a></li>
-        <li><a href="#yhteystiedot">Yhteystiedot</a></li>
+        <li><a href="index.php">Etusivu</a></li>
+        <li><a href="/yleista.php">Yleistä</a></li>
+        <li><a href="ano_arvonimi.php">Arvonimen anonta</a></li>
+        <li><a href="palkitut.php">Palkitut</a></li>
       </ul>
     </div>
   </div>

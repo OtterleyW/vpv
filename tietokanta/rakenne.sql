@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 15.10.2016 klo 22:37
+-- Generation Time: 16.10.2016 klo 19:29
 -- Palvelimen versio: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -76,6 +76,7 @@ CREATE TABLE IF NOT EXISTS `vpv_nk_anomukset` (
   `anottu_aika` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `arvonimi_id` int(11) NOT NULL,
   `sisalto` text COLLATE utf8_swedish_ci NOT NULL,
+  `tila` enum('hyvaksytty','hylatty','kasittelematta') COLLATE utf8_swedish_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci AUTO_INCREMENT=1 ;
 
