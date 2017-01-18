@@ -28,7 +28,7 @@ class Anomus extends PohjaMalli {
 	public static function find($db, $id) {
 		$query = $db->prepare('SELECT * FROM vpv_nk_anomukset INNER JOIN vpv_arvonimet ON vpv_nk_anomukset.arvonimi_id=vpv_arvonimet.id WHERE vpv_nk_anomukset.id = :id LIMIT 1');
 		$query->execute(array('id' => $id));
-		$rows = $query->fetchAll();
+		$rows = $query->fetch();
 		if ($row) {
 			$anomus = new Anomus(array(
 				'id' => $row['id'], 
@@ -43,6 +43,8 @@ class Anomus extends PohjaMalli {
 
 		return null;
 	}
+
+
 
 	public static function haeKasittelemattomat($db) {
 		$query =  $db->prepare('SELECT * FROM vpv_arvonimet INNER JOIN vpv_nk_anomukset ON vpv_nk_anomukset.arvonimi_id=vpv_arvonimet.id WHERE tila="kasittelematta" ORDER BY anottu_aika');

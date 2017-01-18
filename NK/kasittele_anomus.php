@@ -5,8 +5,6 @@ require('asetukset/salasanasuojattu.php');
 if(isset($_POST['sisalto'])){
 	$sisalto = json_decode($_POST['sisalto'], true);
 
-	var_dump($sisalto);
-
 	if(OmistajaKasittelija::findByNameAndEmail($db, $sisalto['nimi'], $sisalto['email']) == null){
 		echo "Tallennetaan";
 
@@ -19,9 +17,7 @@ if(isset($_POST['sisalto'])){
 	
 
 	$omistaja = OmistajaKasittelija::findByNameAndEmail($db, $sisalto['nimi'], $sisalto['email']);
-	
-	var_dump($omistaja);
-	
+
 	
 	$omistaja_id = $omistaja->id;
 
@@ -41,6 +37,10 @@ if(isset($_POST['sisalto'])){
 	$hevonen = HevonenKasittelija::findByInformation($db, $sisalto['hevonen_nimi'], $sisalto['rotu'], $sisalto['sukupuoli']);
 
 	var_dump($hevonen);
+	
+	if(isset($sisalto['myonnetty_paivamaara'])){
+		ArvonimiKasittelija::myonnaVanhaArvonimi($db, $hevonen->id, $sisalto['arvonimi'], $sisalto['myonnetty_paivamaara']);
+	}
 
 	ArvonimiKasittelija::myonnaArvonimi($db, $hevonen->id, $sisalto['arvonimi']);
 } else {

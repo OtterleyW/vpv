@@ -1,7 +1,7 @@
 </div>
 
 <footer class="container-fluid text-center">
-  <a href="#myPage" title="To Top">
+  <a href="#ylos" title="To Top">
     <span class="glyphicon glyphicon-chevron-up"></span>
   </a>
   <p>VPV 2016</p>
@@ -17,7 +17,7 @@
 <script>
 $(document).ready(function(){
   // Add smooth scrolling to all links in navbar + footer link
-  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+  $(".navbar a, footer a[href='#ylos']").on('click', function(event) {
     // Make sure this.hash has a value before overriding default behavior
     if (this.hash !== "") {
       // Prevent default anchor click behavior

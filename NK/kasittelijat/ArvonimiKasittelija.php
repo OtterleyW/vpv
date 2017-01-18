@@ -11,6 +11,11 @@
 		return $arvonimi;
 	}
 
+	public static function viimeksiKasitelty($db) {
+		$arvonimi = Arvonimi::findLatest($db);
+		return $arvonimi;
+	}
+
 
 	public static function tallennaArvonimi($db, $attributes) {
 		$arvonimi = new Arvonimi($attributes);
@@ -21,6 +26,12 @@
 	public static function myonnaArvonimi($db, $hevonen_id, $arvonimi_id) {
 		$arvonimi = Arvonimi::find($db, $arvonimi_id);
 		$arvonimi->annaArvonimi($db, $hevonen_id, $arvonimi_id);
+
+	}
+
+		public static function myonnaVanhaArvonimi($db, $hevonen_id, $arvonimi_id, $myonnetty_paivamaara) {
+		$arvonimi = Arvonimi::find($db, $arvonimi_id);
+		$arvonimi->annaArvonimi($db, $hevonen_id, $arvonimi_id, $myonnetty_paivamaara);
 
 	}
 
