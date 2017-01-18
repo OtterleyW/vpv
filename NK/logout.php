@@ -1,0 +1,5 @@
+<?
+require('asetukset/kaynnista.php');
+session_destroy();
+header('Location: index.php');
+die();

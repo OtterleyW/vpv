@@ -1,4 +1,5 @@
 <?php
+require('asetukset/kaynnista.php');
 require('sivut/yla.php');
 ?>
 

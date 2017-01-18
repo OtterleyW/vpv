@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `vpv_arvonimet` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nimi` varchar(255) COLLATE utf8_swedish_ci NOT NULL,
+  `arvonimi` varchar(255) COLLATE utf8_swedish_ci NOT NULL,
   `lyhenne` varchar(255) COLLATE utf8_swedish_ci NOT NULL,
   `kategoria` enum('NK','VPL') COLLATE utf8_swedish_ci NOT NULL,
   PRIMARY KEY (`id`)
@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `vpv_arvonimet_hevoset` (
 
 CREATE TABLE IF NOT EXISTS `vpv_hevoset` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nimi` varchar(100) COLLATE utf8_swedish_ci NOT NULL,
+  `h_nimi` varchar(100) COLLATE utf8_swedish_ci NOT NULL,
   `rotu_id` int(11) NOT NULL,
   `sukupuoli` enum('ori','tamma','ruuna') COLLATE utf8_swedish_ci NOT NULL,
   `url` varchar(100) COLLATE utf8_swedish_ci NOT NULL,
@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `vpv_nk_anomukset` (
 
 CREATE TABLE IF NOT EXISTS `vpv_omistajat` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nimi` varchar(255) COLLATE utf8_swedish_ci NOT NULL,
+  `o_nimi` varchar(255) COLLATE utf8_swedish_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_swedish_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci AUTO_INCREMENT=2 ;
@@ -101,8 +101,8 @@ CREATE TABLE IF NOT EXISTS `vpv_omistajat` (
 
 CREATE TABLE IF NOT EXISTS `vpv_rodut` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nimi` varchar(255) COLLATE utf8_swedish_ci NOT NULL,
-  `lyhenne` varchar(255) COLLATE utf8_swedish_ci NOT NULL,
+  `r_nimi` varchar(255) COLLATE utf8_swedish_ci NOT NULL,
+  `r_lyhenne` varchar(255) COLLATE utf8_swedish_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci AUTO_INCREMENT=5 ;
 

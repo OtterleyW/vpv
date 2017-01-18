@@ -24,16 +24,21 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="index.php">Etusivu</a></li>
-        <li><a href="/yleista.php">Yleistä</a></li>
+        <li><a href="yleista.php">Yleistä</a></li>
         <li><a href="ano_arvonimi.php">Arvonimen anonta</a></li>
         <li><a href="palkitut.php">Palkitut</a></li>
+    <?
+    if (isset($_SESSION['authenticated']) && $_SESSION['authenticated'] == true) {
+    ?>
+        <li><a href="anomusjono.php">Anomusjono</a></li>
+      <?}?>
       </ul>
     </div>
   </div>
 </nav>
 
 <div class="jumbotron text-center">
-  <h1>NK</h1>
+  <h1>PVNK</h1>
   <p>Puoliveristen Näyttelyiden Kermaa</p>
 </div>
 

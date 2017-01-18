@@ -5,6 +5,13 @@
     <span class="glyphicon glyphicon-chevron-up"></span>
   </a>
   <p>VPV 2016</p>
+  <?
+  if(!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] == false){?>
+  <p><small><a href="login.php">Kirjaudu sisään</a></small></p>
+  <? } else {?>
+    <p><small><a href="logout.php">Kirjaudu ulos</a></small></p>
+  <?}
+  ?>
 </footer>
 
 <script>
