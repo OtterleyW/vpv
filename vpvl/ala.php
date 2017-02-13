@@ -1,23 +1,17 @@
 </div>
+</div>
 
 <footer class="container-fluid text-center">
-  <a href="#ylos" title="To Top">
+  <a href="#myPage" title="To Top">
     <span class="glyphicon glyphicon-chevron-up"></span>
   </a>
   <p>VPV 2017</p>
-  <?
-  if(!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] == false){?>
-  <p><small><a href="login.php">Kirjaudu sisään</a></small></p>
-  <? } else {?>
-    <p><small><a href="logout.php">Kirjaudu ulos</a></small></p>
-  <?}
-  ?>
 </footer>
 
 <script>
 $(document).ready(function(){
   // Add smooth scrolling to all links in navbar + footer link
-  $(".navbar a, footer a[href='#ylos']").on('click', function(event) {
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
     // Make sure this.hash has a value before overriding default behavior
     if (this.hash !== "") {
       // Prevent default anchor click behavior
@@ -53,4 +47,3 @@ $(document).ready(function(){
 
 </body>
 </html>
-

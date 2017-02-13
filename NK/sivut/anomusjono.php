@@ -1,9 +1,10 @@
 <?
 require('yla.php');
-	$anomukset = AnomusKasittelija::haeKasittelemattomat($db);
+$anomukset = AnomusKasittelija::haeKasittelemattomat($db);
 ?>
 
 <div class="text-center">
+<h2>Anomusjono</h2>
 	<p>
 		Jonossa tällä hetkellä <strong><?= count($anomukset)?></strong> anomusta. 
 	</p>
@@ -28,7 +29,7 @@ foreach ($anomukset as $anomus){
 				<p>
 					<b>Anottu arvonimi:</b> <?= $arvonimi->nimi ?> (<?=$arvonimi->lyhenne?>)<br />
 					<b>Anoja:</b> <a href="mailto:<?=$sisalto['email']?>"><?=$sisalto['nimi']?></a><br />
-					<b>Hevonen:</b> <a href="<?=$sisalto['hevonen_url']?>"><?=$sisalto['hevonen_nimi']?></a> (<?=$rotu->nimi?> <?=$sisalto['sukupuoli']?>)
+					<b>Hevonen:</b> <a href="<?=$sisalto['hevonen_url']?>"><?=$sisalto['hevonen_nimi']?></a> (<?=$rotu->nimi?> <?=$sisalto['sukupuoli']?>)<br />
 				</p>
 
 				<p>
@@ -51,13 +52,17 @@ foreach ($anomukset as $anomus){
 						</div>
 						<div class="col-sm-2">
 							<form action="kasittele_anomus.php" method="post" id="hylkaa">
+							<div class="form-group">
+								<label for="hylkayssyy">Hylkäyssyy:</label>
+								<input type="text" name="hylkayssyy" id="hylkayssyy">
+							</div>
+							
 								<input type="hidden" name="id" value="<?=$anomus->id?>">
+								<input type="hidden" name="hevonen_nimi" value="<?=$sisalto['hevonen_nimi']?>">
 								<input type="hidden" name="email" value="<?=$sisalto['email']?>">
 								<input type="hidden" name="tila" value="hylatty">
-								<input type="submit" class="btn btn-danger btn-block" value="Hylkää">							
+								<input type="submit" class="btn btn-danger btn-block" value="Hylkää">		
 
-								<label for="hylkayssyy">Hylkäyssyy:</label>
-								<input type="text" name="hylkayssyy" rows="2" id="hylkayssyy"></textarea>
 							</form> 
 						</div>
 

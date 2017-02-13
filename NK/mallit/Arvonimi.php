@@ -62,19 +62,14 @@ class Arvonimi extends PohjaMalli {
 	}
 
 	public function save($db) {
-	    $query = $db->prepare('INSERT INTO vpv_arvonimet (arvonimi, lyhenne, kategoria) VALUES (:nimi, :lyhenne, :kategoria)');
-	    $query->execute(array('nimi' => $this->nimi, 'lyhenne' => $this->lyhenne, 'kategoria' => $this->kategoria));
+		$query = $db->prepare('INSERT INTO vpv_arvonimet (arvonimi, lyhenne, kategoria) VALUES (:nimi, :lyhenne, :kategoria)');
+		$query->execute(array('nimi' => $this->nimi, 'lyhenne' => $this->lyhenne, 'kategoria' => $this->kategoria));
 	}
 
 
-	    public function annaArvonimi($db,$hevonen_id, $arvonimi_id) {
-	    $query = $db->prepare('INSERT INTO vpv_arvonimet_hevoset (hevonen_id, arvonimi_id) VALUES (:hevonen_id, :arvonimi_id)');
-	    $query->execute(array('hevonen_id' => $hevonen_id, 'arvonimi_id' => $arvonimi_id));
-	}
-
-		    public function annaVanhaArvonimi($db,$hevonen_id, $arvonimi_id, $myonnetty_paivamaara) {
-	    $query = $db->prepare('INSERT INTO vpv_arvonimet_hevoset (hevonen_id, arvonimi_id, myonnetty_aika) VALUES (:hevonen_id, :arvonimi_id, :myonnetty_paivamaara)');
-	    $query->execute(array('hevonen_id' => $hevonen_id, 'arvonimi_id' => $arvonimi_id, 'myonnetty_paivamaara' => $myonnetty_paivamaara));
+	public function annaArvonimi($db,$hevonen_id, $arvonimi_id) {
+		$query = $db->prepare('INSERT INTO vpv_arvonimet_hevoset (hevonen_id, arvonimi_id) VALUES (:hevonen_id, :arvonimi_id)');
+		$query->execute(array('hevonen_id' => $hevonen_id, 'arvonimi_id' => $arvonimi_id));
 	}
 
 

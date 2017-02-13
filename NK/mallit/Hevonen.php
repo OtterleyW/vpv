@@ -61,7 +61,7 @@ class Hevonen extends PohjaMalli {
 	}
 
 	public static function findByPrize($db, $arvonimi_id, $rotu_id) {
-		$query =  $db->prepare('SELECT h.id as id, h.h_nimi, h.rotu_id, r.r_nimi, r.r_lyhenne, h.sukupuoli, h.url, h.omistaja_id, o.email, o.o_nimi, an.id as arvonimi_id, an.arvonimi, an.lyhenne, anh.myonnetty_aika FROM vpv_hevoset as h LEFT JOIN vpv_arvonimet_hevoset as anh ON h.id = anh.hevonen_id LEFT JOIN  vpv_arvonimet as an ON anh.arvonimi_id=an.id  LEFT JOIN vpv_omistajat as o ON h.omistaja_id = o.id LEFT JOIN vpv_rodut as r ON h.rotu_id = r.id WHERE arvonimi_id = :arvonimi_id AND h.rotu_id = :rotu_id');
+		$query =  $db->prepare('SELECT h.id as id, h.h_nimi, h.rotu_id, r.r_nimi, r.r_lyhenne, h.sukupuoli, h.url, h.omistaja_id, o.email, o.o_nimi, an.id as arvonimi_id, an.arvonimi, an.lyhenne, anh.myonnetty_aika FROM vpv_hevoset as h LEFT JOIN vpv_arvonimet_hevoset as anh ON h.id = anh.hevonen_id LEFT JOIN  vpv_arvonimet as an ON anh.arvonimi_id=an.id  LEFT JOIN vpv_omistajat as o ON h.omistaja_id = o.id LEFT JOIN vpv_rodut as r ON h.rotu_id = r.id WHERE arvonimi_id = :arvonimi_id AND h.rotu_id = :rotu_id ORDER BY h.sukupuoli, h.h_nimi');
 		$query->execute(array('arvonimi_id' => $arvonimi_id, 'rotu_id' => $rotu_id));
 		$rows = $query->fetchAll();
 

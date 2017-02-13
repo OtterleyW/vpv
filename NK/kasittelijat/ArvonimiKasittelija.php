@@ -29,11 +29,5 @@
 
 	}
 
-		public static function myonnaVanhaArvonimi($db, $hevonen_id, $arvonimi_id, $myonnetty_paivamaara) {
-		$arvonimi = Arvonimi::find($db, $arvonimi_id);
-		$arvonimi->annaArvonimi($db, $hevonen_id, $arvonimi_id, $myonnetty_paivamaara);
-
-	}
-
 
 }

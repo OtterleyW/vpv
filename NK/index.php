@@ -4,7 +4,9 @@ require('sivut/yla.php');
 
 $anomus = ArvonimiKasittelija::viimeksiKasitelty($db);
 $viimeksi_kasitelty = muotoile_paivamaara_ja_kellonaika($anomus->myonnetty_aika);
+$anomukset = AnomusKasittelija::haeKasittelemattomat($db);
 ?>
+
  
   <div class="row">
     <div class="col-sm-7">
@@ -21,27 +23,22 @@ PVNK jakaa VIR MVA, Ch, Ch-M, Ch-NV ja Ch-R -arvonimiä, kuten muutkin alajaokse
 Ylläpitoon saa parhaiten yhteyttä Puoliveristen Näyttelyiden Kermaa -sivuston sähköpostista, <b>puoliverink[at]gmail.com</b>. PVNK 
 toimii <a href="http://romanssi.org/nj/">Virtuaalisen Näyttelyjaoksen</a> eli NJ:n alaisuudessa.</p>
 
-          <p>Terveisin,<br />
-          &nbsp;&nbsp;<a href="mailto:nk[at]sokerihiiri.net"><strong>Evelina K.</strong></a></p>
+
     </div>
     <div class="col-sm-1">
     </div>
     <div class="col-sm-4">
 		<div class="well">
-		<h3>Ajankohtaista</h3>
+		<big>Ajankohtaista</big>
 			<p>
-				Jonoa tyhjennetty <?=$viimeksi_kasitelty?>
+				Jonoa tyhjennetty <?=$viimeksi_kasitelty?><br />
+				Jonossa tällä hetkellä <strong><?= count($anomukset)?></strong> anomusta. 
 			</p>
 
-			<p>
-				<small>
-					<b>18.01.2017</b> Uudet sivut viilausta vaille valmiit
-				</small>
-			</p>
 		</div>
 
 		<div class="well">
-		<h3>Vieraile myös</h3>
+		<big>Vieraile myös</big>
 		<ul>
 			<li><a href="http://kulovalkea.net/nk_kv/">Kylmäveristen NK</a></li>
 			<li><a href="http://kulovalkea.net/nk_lv/">Lämminveristen NK</a></li>
